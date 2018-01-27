@@ -11,6 +11,7 @@ public class PuzzleMaster : MonoBehaviour {
     private int sandWeight = 0;
     private int sandCap = 20;
     private int sandAnswer = 17;
+    private SandBagHold sandBagHoldScript;
     #endregion
 
     public GameObject exit;
@@ -20,31 +21,43 @@ public class PuzzleMaster : MonoBehaviour {
 
         if (plateCode == plateCombo[lockState])
             lockState++;
-<<<<<<< HEAD
-        if (lockState == plateCombo.Length)
-=======
         else lockState = 0;
-        if (lockState == plateCombo.Length - 1)
->>>>>>> a3be98075ecbd796d120932bdb427b8605dbf8cb
+        if (lockState == plateCombo.Length)
             exit.SendMessage("Open");
             
     }
 
     #region Sand Puzzle Methods
-    public void RemoveSand()
-    {
-        if (sandWeight != 0) sandWeight--;
-    }
-
+    // Adds sand to the bag
     public void AddSand()
     {
         if (sandWeight != sandCap) sandWeight++;
     }
 
-    public bool TestSand()
+    // Removes sand from the bag
+    public void RemoveSand()
     {
-        if (sandWeight == sandAnswer) return true;
+        if (sandWeight != 0) sandWeight--;
+    }
+
+    // Places bag on plate and tests the code
+    public bool TestSand(SandBagHold script)
+    {
+        if (script.isHeld)
+        {
+            // Code for placing bag on plate here
+            if (sandWeight == sandAnswer) return true;
+            return false;
+        }
+        script.isHeld = true;
         return false;
+    }
+
+    // Places bag visibly on the scale part
+    public void PlaceBagScale(SandBagHold script)
+    {
+        // Code for placing bag back on scale
+        script.isHeld = false;
     }
     #endregion
 }

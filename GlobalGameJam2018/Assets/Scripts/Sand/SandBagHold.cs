@@ -19,12 +19,14 @@ public class SandBagHold : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(isHeld)
+        {
+            // Code for holding the bag here
+        }
 	}
 
     public void Interact()
     {
         isHeld = true;
-        puzzleMaster.SendMessage("HoldBag");
     }
 }

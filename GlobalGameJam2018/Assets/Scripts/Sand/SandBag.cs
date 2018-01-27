@@ -26,6 +26,6 @@ public class SandBag : MonoBehaviour {
     public void Interact()
     {
         if (!sandBagHoldScript.isHeld) puzzleMaster.SendMessage("RemoveSand");
-        else puzzleMaster.SendMessage("PlaceBagScale");
+        else puzzleMaster.SendMessage("PlaceBagScale", sandBagHoldScript);
     }
 }

@@ -51,4 +51,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358e5af4220e00c49b9c21cdd1d2f0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sandBagObject: {fileID: 0}
+  rockScaleObject: {fileID: 0}
+  sandButton: {fileID: 0}
+  sandBag: {fileID: 0}
+  sandPlate: {fileID: 0}
+  sandBagHold: {fileID: 0}
+  heightChange: 0.05
+  patternLength: 0
+  allColors: []
+  codePosition: 0
+  position: 0
+  isWrong: 0
+  isCompleted: 0
   exit: {fileID: 0}

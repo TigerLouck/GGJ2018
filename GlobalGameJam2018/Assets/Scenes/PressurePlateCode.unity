@@ -161,53 +161,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 50673783847574418, guid: 7596665533bd6a14da47a1c65ccc3ef2,
+    - target: {fileID: 114377381152128022, guid: 7596665533bd6a14da47a1c65ccc3ef2,
         type: 2}
-      propertyPath: m_Constraints
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 50673783847574418, guid: 7596665533bd6a14da47a1c65ccc3ef2,
-        type: 2}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857816586349174, guid: 7596665533bd6a14da47a1c65ccc3ef2, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857816586349174, guid: 7596665533bd6a14da47a1c65ccc3ef2, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857816586349174, guid: 7596665533bd6a14da47a1c65ccc3ef2, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212379314414045148, guid: 7596665533bd6a14da47a1c65ccc3ef2,
-        type: 2}
-      propertyPath: m_Sprite
+      propertyPath: anim
       value: 
-      objectReference: {fileID: 21300000, guid: b0f6ce597a2d20c429d15b24760fd399,
-        type: 3}
-    - target: {fileID: 61410280909380906, guid: 7596665533bd6a14da47a1c65ccc3ef2,
+      objectReference: {fileID: 1948893854}
+    - target: {fileID: 114377381152128022, guid: 7596665533bd6a14da47a1c65ccc3ef2,
         type: 2}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.32
+      propertyPath: maxVelocity
+      value: 0.05
       objectReference: {fileID: 0}
-    - target: {fileID: 61410280909380906, guid: 7596665533bd6a14da47a1c65ccc3ef2,
+    - target: {fileID: 114377381152128022, guid: 7596665533bd6a14da47a1c65ccc3ef2,
         type: 2}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 61410280909380906, guid: 7596665533bd6a14da47a1c65ccc3ef2,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 61410280909380906, guid: 7596665533bd6a14da47a1c65ccc3ef2,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.8
+      propertyPath: acceleration
+      value: 0.003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7596665533bd6a14da47a1c65ccc3ef2, type: 2}
@@ -813,21 +780,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 61385016878464336, guid: a8eef02e551d60d498c5d5b1a3498203,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61385016878464336, guid: a8eef02e551d60d498c5d5b1a3498203,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114924520412154578, guid: a8eef02e551d60d498c5d5b1a3498203,
-        type: 2}
-      propertyPath: SceneToLoad
-      value: SandPuzzle
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8eef02e551d60d498c5d5b1a3498203, type: 2}
   m_IsPrefabParent: 0
@@ -836,20 +788,8 @@ GameObject:
   m_PrefabParentObject: {fileID: 1783346248599920, guid: 7596665533bd6a14da47a1c65ccc3ef2,
     type: 2}
   m_PrefabInternal: {fileID: 348190457}
---- !u!95 &1948893854
+--- !u!95 &1948893854 stripped
 Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1948893847}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 38e2b975c1901fd4a80a38e77ebc90d4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_PrefabParentObject: {fileID: 95214513472703760, guid: 7596665533bd6a14da47a1c65ccc3ef2,
+    type: 2}
+  m_PrefabInternal: {fileID: 348190457}

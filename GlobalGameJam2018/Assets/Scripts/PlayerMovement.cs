@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     public float leftBound;
     public float rightBound;
     public bool isLeft = false;
+    public Animator anim;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour {
             playerSprite.flipX = true;
             if (velocity <= -maxVelocity) velocity = -maxVelocity;
             else velocity -= acceleration;
+            anim.SetBool("Walking", true);
         }
         else if (Input.GetAxis("Horizontal") > 0) // Right
         {
@@ -39,8 +41,13 @@ public class PlayerMovement : MonoBehaviour {
             playerSprite.flipX = false;
             if (velocity >= maxVelocity) velocity = maxVelocity;
             else velocity += acceleration;
+            anim.SetBool("Walking", true);
         }
-        else if (velocity != 0) velocity = 0; // Stop immediately
+        else if (velocity != 0)
+        {
+            velocity = 0; // Stop immediately
+            anim.SetBool("Walking", false);
+        } 
 
         // Change Position
         position += velocity;

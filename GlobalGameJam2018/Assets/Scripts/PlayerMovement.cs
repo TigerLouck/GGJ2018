@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour {
             else velocity += acceleration;
         }
         else if (velocity != 0) velocity = 0; // Stop immediately
+        gameObject.transform.localScale = new Vector3(0, 0, 0);
 
         // Change Position
         position += velocity;

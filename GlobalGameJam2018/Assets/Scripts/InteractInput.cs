@@ -27,6 +27,7 @@ public class InteractInput : MonoBehaviour {
     // Enters trigger collider
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Entered!");
         // Objects tagged with "Interactable" are put into the list
         if(collision.tag == "Interactable")
             if (!interactables.Contains(collision.gameObject))
@@ -36,6 +37,7 @@ public class InteractInput : MonoBehaviour {
     // Exits trigger collider
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("Exited!");
         // Objects tagged with "Interactable" are taken out of the list
         if (collision.tag == "Interactable")
             if (interactables.Contains(collision.gameObject))

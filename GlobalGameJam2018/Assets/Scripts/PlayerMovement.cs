@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour {
     public float acceleration;
     public float maxVelocity;
     public SpriteRenderer playerSprite;
+    public float leftBound;
+    public float rightBound;
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +41,7 @@ public class PlayerMovement : MonoBehaviour {
 
         // Change Position
         position += velocity;
-        gameObject.transform.position = new Vector3(position, gameObject.transform.position.y, gameObject.transform.position.z);
+        position = Mathf.Clamp(position, leftBound, rightBound);
+        transform.position = new Vector3(position, transform.position.y, transform.position.z);
     }
 }

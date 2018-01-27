@@ -4,10 +4,12 @@ using UnityEngine;
 /*
  * David Liu
  * Player Movement
+ * Handles the left and right movement of the player using velocity and acceleration. Also switches the sprite.
  */
 public class PlayerMovement : MonoBehaviour {
 
     // Variables
+    public float position;
     public float velocity;
     public float acceleration;
     public float maxVelocity;
@@ -33,6 +35,10 @@ public class PlayerMovement : MonoBehaviour {
             if (velocity >= maxVelocity) velocity = maxVelocity;
             else velocity += acceleration;
         }
-        else if (velocity != 0) velocity *= 0.5f;// No movement
+        else if (velocity != 0) velocity = 0; // Stop immediately
+
+        // Change Position
+        position += velocity;
+        gameObject.transform.position = new Vector3(position, gameObject.transform.position.y, gameObject.transform.position.z);
     }
 }

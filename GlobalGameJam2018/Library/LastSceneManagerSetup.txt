@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/PressurePlateCode.unity
+=======
+- path: Assets/Scenes/SandPuzzle.unity
+>>>>>>> e4b3eaa0c3f54f6ad2179f90786b0045314a3c30
   isLoaded: 1
   isActive: 1

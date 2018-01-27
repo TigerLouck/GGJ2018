@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     public SpriteRenderer playerSprite;
     public float leftBound;
     public float rightBound;
+    public bool isLeft = false;
 
 	// Use this for initialization
 	void Start () {
@@ -27,12 +28,14 @@ public class PlayerMovement : MonoBehaviour {
         // Player Input
         if (Input.GetAxis("Horizontal") < 0) // Left
         {
+            isLeft = true;
             playerSprite.flipX = true;
             if (velocity <= -maxVelocity) velocity = -maxVelocity;
             else velocity -= acceleration;
         }
         else if (Input.GetAxis("Horizontal") > 0) // Right
         {
+            isLeft = false;
             playerSprite.flipX = false;
             if (velocity >= maxVelocity) velocity = maxVelocity;
             else velocity += acceleration;

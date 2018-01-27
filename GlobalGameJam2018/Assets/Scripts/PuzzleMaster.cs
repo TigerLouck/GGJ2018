@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PuzzleMaster : MonoBehaviour {
 
-    private int[] plateCombo = new int[6] { 3, 4, 4, 1, 5, 4 };
+    private int[] plateCombo = new int[6] { 2, 3, 3, 0, 4, 3 };
     private int lockState = 0;
 
     #region Sand Puzzle Variables
@@ -20,8 +20,12 @@ public class PuzzleMaster : MonoBehaviour {
 
         if (plateCode == plateCombo[lockState])
             lockState++;
+<<<<<<< HEAD
+        if (lockState == plateCombo.Length)
+=======
         else lockState = 0;
         if (lockState == plateCombo.Length - 1)
+>>>>>>> a3be98075ecbd796d120932bdb427b8605dbf8cb
             exit.SendMessage("Open");
             
     }

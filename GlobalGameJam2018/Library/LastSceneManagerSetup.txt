@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
+- path: Assets/Scenes/PressurePlateCode.unity
+=======
 - path: Assets/Scenes/test.unity
+>>>>>>> a3be98075ecbd796d120932bdb427b8605dbf8cb
   isLoaded: 1
   isActive: 1

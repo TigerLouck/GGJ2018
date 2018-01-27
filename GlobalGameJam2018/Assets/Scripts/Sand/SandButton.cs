@@ -14,8 +14,10 @@ public class SandButton : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        // Reference this script in the puzzle master
+        PuzzleMaster script = puzzleMaster.GetComponent<PuzzleMaster>();
+        script.sandButton = this;
+    }
 	
 	// Update is called once per frame
 	void Update () {

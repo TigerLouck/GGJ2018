@@ -14,7 +14,15 @@ public class PuzzleMaster : MonoBehaviour {
     private int sandWeight = 0;
     private int sandCap = 20;
     private int sandAnswer = 17;
-    private SandBagHold sandBagHoldScript;
+
+    // Reference each object and script
+    public GameObject sandBagObject;
+    public GameObject rockScaleObject;
+    public SandButton sandButton;
+    public SandBag sandBag;
+    public SandPlate sandPlate;
+    public SandBagHold sandBagHold;
+    public float heightChange = 0.05f;
     #endregion
 
     public GameObject exit;
@@ -35,33 +43,57 @@ public class PuzzleMaster : MonoBehaviour {
     // Adds sand to the bag
     public void AddSand()
     {
-        if (sandWeight != sandCap) sandWeight++;
+        if (sandWeight != sandCap && !sandBagHold.isHeld && !sandPlate.onPlate)
+        {
+            sandWeight++;
+            sandBag.gameObject.transform.position += new Vector3(0, heightChange, 0);
+            sandBagObject.transform.position += new Vector3(0, heightChange, 0);
+            rockScaleObject.transform.position -= new Vector3(0, heightChange, 0);
+        }
     }
 
     // Removes sand from the bag
     public void RemoveSand()
     {
-        if (sandWeight != 0) sandWeight--;
+        if (sandWeight != 0 && !sandBagHold.isHeld && !sandPlate.onPlate)
+        {
+            sandWeight--;
+            sandBag.gameObject.transform.position -= new Vector3(0, heightChange, 0);
+            sandBagObject.transform.position -= new Vector3(0, heightChange, 0);
+            rockScaleObject.transform.position += new Vector3(0, heightChange, 0);
+        }
     }
 
     // Places bag on plate and tests the code
-    public bool TestSand(SandBagHold script)
+    public void TestSand()
     {
-        if (script.isHeld)
+        if (sandBagHold.isHeld)
         {
-            // Code for placing bag on plate here
-            if (sandWeight == sandAnswer) return true;
-            return false;
+            if (sandWeight == sandAnswer) Debug.Log("Success!");
+            else Debug.Log("Wrong!");
+            sandBagHold.isHeld = false;
+            sandPlate.onPlate = true;
+            sandBagObject.transform.position = sandPlate.transform.position + new Vector3(0, sandBagObject.GetComponent<SpriteRenderer>().bounds.extents.y, 0);
         }
-        script.isHeld = true;
-        return false;
+        else
+        {
+            sandBagHold.isHeld = true;
+            sandPlate.onPlate = false;
+        }
     }
 
     // Places bag visibly on the scale part
-    public void PlaceBagScale(SandBagHold script)
+    public void PlaceBagScale()
     {
-        // Code for placing bag back on scale
-        script.isHeld = false;
+        sandBagHold.isHeld = false;
+        sandBagObject.transform.position = sandBag.transform.position;
+    }
+
+    // Makes the player hold the sand bag
+    public void HoldBag()
+    {
+        sandBagHold.isHeld = true;
+        sandPlate.onPlate = false;
     }
     #endregion
 }

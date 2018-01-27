@@ -23,6 +23,11 @@ public class SandBagHold : MonoBehaviour {
         if (sandBag == null) Debug.LogError("Sand Bag object was not found in SandBagHold script!");
         if (player == null) Debug.LogError("Player object was not found in SandBagHold script!");
         movementScript = player.GetComponent<PlayerMovement>();
+
+        // Reference this script in the puzzle master
+        PuzzleMaster script = puzzleMaster.GetComponent<PuzzleMaster>();
+        script.sandBagHold = this;
+        script.sandBagObject = sandBag;
     }
 	
 	// Update is called once per frame
@@ -37,6 +42,6 @@ public class SandBagHold : MonoBehaviour {
 
     public void Interact()
     {
-        isHeld = true;
+        puzzleMaster.SendMessage("HoldBag");
     }
 }

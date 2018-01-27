@@ -10,11 +10,13 @@ public class SandPlate : MonoBehaviour {
 
     // Variables
     public GameObject puzzleMaster;
-    public SandBagHold sandBagHoldScript;
+    public bool onPlate = false;
 
     // Use this for initialization
     void Start () {
-        if (sandBagHoldScript == null) Debug.LogError("Sand Bag Hold script was not found in Sand Plate script!");
+        // Reference this script in the puzzle master
+        PuzzleMaster script = puzzleMaster.GetComponent<PuzzleMaster>();
+        script.sandPlate = this;
     }
 	
 	// Update is called once per frame
@@ -24,6 +26,6 @@ public class SandPlate : MonoBehaviour {
 
     public void Interact()
     {
-        if(sandBagHoldScript.isHeld) puzzleMaster.SendMessage("TestSand");
+        puzzleMaster.SendMessage("TestSand");
     }
 }

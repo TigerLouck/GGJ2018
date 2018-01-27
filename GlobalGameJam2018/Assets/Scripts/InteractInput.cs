@@ -7,7 +7,6 @@ using UnityEngine;
  * Player interaction input with objects.
  */
 public class InteractInput : MonoBehaviour {
-
     // Variables
     List<GameObject> interactables = new List<GameObject>();
 
@@ -29,9 +28,13 @@ public class InteractInput : MonoBehaviour {
     {
         Debug.Log("Entered!");
         // Objects tagged with "Interactable" are put into the list
-        if(collision.tag == "Interactable")
+        if (collision.tag == "Interactable")
+            Debug.Log("object encountered");
             if (!interactables.Contains(collision.gameObject))
+            {
                 interactables.Add(collision.gameObject);
+                Debug.Log("interactable object encountered");
+            }
     }
 
     // Exits trigger collider

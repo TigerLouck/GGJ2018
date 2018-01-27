@@ -1,28 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * pressure plate interaction handler
+ */
 public class PressurePlate : MonoBehaviour {
 
     public GameObject puzzleMaster;
     public int plateCode;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    public void Interact()
+    public void Depress()
     {
         puzzleMaster.SendMessage("HitPlate", plateCode);
     }
 
-    private void OnMouseDown()
-    {
-        Interact();
-    }
 }

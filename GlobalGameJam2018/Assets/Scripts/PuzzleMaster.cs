@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * Tiger Louck, David Liu
+ * puzzle master game controller script, handles the pressure plate combo lock, the scale, and the color tree puzzles.
+ */
 public class PuzzleMaster : MonoBehaviour {
 
     private int[] plateCombo = new int[6] { 2, 3, 3, 0, 4, 3 };
@@ -22,6 +25,7 @@ public class PuzzleMaster : MonoBehaviour {
         if (plateCode == plateCombo[lockState])
             lockState++;
         else lockState = 0;
+
         if (lockState == plateCombo.Length)
             exit.SendMessage("Open");
             

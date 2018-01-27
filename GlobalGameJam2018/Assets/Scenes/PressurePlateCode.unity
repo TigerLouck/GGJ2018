@@ -174,6 +174,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7596665533bd6a14da47a1c65ccc3ef2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &380806653 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1976130568212202, guid: a8eef02e551d60d498c5d5b1a3498203,
+    type: 2}
+  m_PrefabInternal: {fileID: 1833366781}
 --- !u!1001 &479543464
 Prefab:
   m_ObjectHideFlags: 0
@@ -213,6 +218,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114450694253696482, guid: 07832bcb626a5a4488b54a57b366428e,
+        type: 2}
+      propertyPath: exit
+      value: 
+      objectReference: {fileID: 380806653}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07832bcb626a5a4488b54a57b366428e, type: 2}
   m_IsPrefabParent: 0
@@ -584,7 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHeld: 0
-  Player: {fileID: 1948893847}
+  player: {fileID: 1948893847}
   buttons:
   - {fileID: 322172485}
   - {fileID: 1349042852}
@@ -774,6 +784,11 @@ Prefab:
         type: 2}
       propertyPath: m_Size.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114924520412154578, guid: a8eef02e551d60d498c5d5b1a3498203,
+        type: 2}
+      propertyPath: SceneToLoad
+      value: SandPuzzle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8eef02e551d60d498c5d5b1a3498203, type: 2}

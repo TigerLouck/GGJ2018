@@ -28,6 +28,7 @@ public class PuzzleMaster : MonoBehaviour {
     #region Color Puzzle Variables
     public int patternLength;
     public List<Color> allColors = new List<Color>();
+    public Color[] allColorPaths;
     public List<List<Color>> colorCodes = new List<List<Color>>();
     public int codePosition = 0;
     public int position = 0;
@@ -39,6 +40,15 @@ public class PuzzleMaster : MonoBehaviour {
 
     public void Start()
     {
+        int result = 1;
+        result = (int)((3 * Mathf.Pow((patternLength - 1), 2)) * patternLength);
+
+        allColorPaths = new Color[result];
+        for(int j = 0; j < allColors.Count; j++)
+        {
+            RecurseColors(result, 0, 0, -1, 0);
+        }
+
         int counter = 0;
         while (allColors.Count != 0)
         {
@@ -76,9 +86,9 @@ public class PuzzleMaster : MonoBehaviour {
         if (sandWeight != sandCap && !sandBagHold.isHeld && !sandPlate.onPlate)
         {
             sandWeight++;
-            sandBag.gameObject.transform.position += new Vector3(0, heightChange, 0);
-            sandBagObject.transform.position += new Vector3(0, heightChange, 0);
-            rockScaleObject.transform.position -= new Vector3(0, heightChange, 0);
+            sandBag.gameObject.transform.position -= new Vector3(0, heightChange, 0);
+            sandBagObject.transform.position -= new Vector3(0, heightChange, 0);
+            rockScaleObject.transform.position += new Vector3(0, heightChange, 0);
         }
     }
 
@@ -88,9 +98,9 @@ public class PuzzleMaster : MonoBehaviour {
         if (sandWeight != 0 && !sandBagHold.isHeld && !sandPlate.onPlate)
         {
             sandWeight--;
-            sandBag.gameObject.transform.position -= new Vector3(0, heightChange, 0);
-            sandBagObject.transform.position -= new Vector3(0, heightChange, 0);
-            rockScaleObject.transform.position += new Vector3(0, heightChange, 0);
+            sandBag.gameObject.transform.position += new Vector3(0, heightChange, 0);
+            sandBagObject.transform.position += new Vector3(0, heightChange, 0);
+            rockScaleObject.transform.position -= new Vector3(0, heightChange, 0);
         }
     }
 
@@ -158,4 +168,41 @@ public class PuzzleMaster : MonoBehaviour {
         }
     }
     #endregion
+
+    public void RecurseColors(int count, int path, int counter, int index, int prevStart)
+    {
+        if (count == 1) return;
+        count--;
+        count = count / 3;
+        switch (path)
+        {
+            case 0:
+                index++;
+                break;
+            case 1:
+                index += 2;
+                break;
+            case 2:
+                index += 3;
+                break;
+        }
+
+        int start = prevStart + (count * path) + (counter + path);
+        Debug.Log(allColors.Count);
+        Debug.Log(start);
+        Debug.Log(count);
+        float length = (allColors.Count - ((2f * ((count - 1) / 3f)) + 1)) + start;
+        Debug.Log("Start: " + start);
+        Debug.Log("Length: " + length);
+        for (int i = start; i <= length; i += patternLength)
+        {
+            allColorPaths[i] = allColors[index];
+        }
+        counter++;
+        prevStart = start;
+
+        RecurseColors(count, 0, counter, index, prevStart);
+        RecurseColors(count, 1, counter, index, prevStart);
+        RecurseColors(count, 2, counter, index, prevStart);
+    }
 }

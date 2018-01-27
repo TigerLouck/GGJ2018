@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Instructions.unity
     guid: 4bfcfa08002e10c4a8d259a8bd158df7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/test.unity
     guid: 0037d26c5f8ea414ebe93ea08a25d1ea
+  - enabled: 1
+    path: Assets/Scenes/PressurePlateCode.unity
+    guid: 308f0cc9c6710f84b93b2ab710b89cb1
+  - enabled: 1
+    path: Assets/Scenes/SandPuzzle.unity
+    guid: 8dc2e3dbd60440943a6b15d4bd3baa60
+  - enabled: 1
+    path: Assets/Scenes/ColorPuzzle.unity
+    guid: 05dad416f76dcc94085e976d90aba64f

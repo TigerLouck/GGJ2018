@@ -775,6 +775,11 @@ Prefab:
       propertyPath: m_Size.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114924520412154578, guid: a8eef02e551d60d498c5d5b1a3498203,
+        type: 2}
+      propertyPath: SceneToLoad
+      value: SandPuzzle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8eef02e551d60d498c5d5b1a3498203, type: 2}
   m_IsPrefabParent: 0

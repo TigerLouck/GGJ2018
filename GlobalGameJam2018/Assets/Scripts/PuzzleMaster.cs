@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 /*
- * Tiger Louck, David Liu
+ * Tiger Louck, David Liu, Sam Keir
  * puzzle master game controller script, handles the pressure plate combo lock, the scale, and the color tree puzzles.
  */
 public class PuzzleMaster : MonoBehaviour {
@@ -25,8 +25,38 @@ public class PuzzleMaster : MonoBehaviour {
     public float heightChange = 0.05f;
     #endregion
 
+    #region Color Puzzle Variables
+    public int patternLength;
+    public List<Color> allColors = new List<Color>();
+    public List<List<Color>> colorCodes = new List<List<Color>>();
+    public int codePosition = 0;
+    public int position = 0;
+    public bool isWrong = false;
+    public bool isCompleted = false;
+    #endregion
+
     public GameObject exit;
-	public void HitPlate(int plateCode)
+
+    public void Start()
+    {
+        int counter = 0;
+        while (allColors.Count != 0)
+        {
+            List<Color> colorList = new List<Color>();
+            colorCodes.Add(colorList);
+            counter = 0;
+            while (counter != patternLength || allColors.Count != 0)
+            {
+                counter++;
+                colorList.Add(allColors[0]);
+                allColors.RemoveAt(0);
+            }
+        }
+
+        codePosition = Random.Range(0, colorCodes.Count);
+    }
+
+    public void HitPlate(int plateCode)
     {
         Debug.Log(plateCode);
 
@@ -69,8 +99,7 @@ public class PuzzleMaster : MonoBehaviour {
     {
         if (sandBagHold.isHeld)
         {
-            if (sandWeight == sandAnswer) Debug.Log("Success!");
-            else Debug.Log("Wrong!");
+            if (sandWeight == sandAnswer) exit.SendMessage("Open");
             sandBagHold.isHeld = false;
             sandPlate.onPlate = true;
             sandBagObject.transform.position = sandPlate.transform.position + new Vector3(0, sandBagObject.GetComponent<SpriteRenderer>().bounds.extents.y, 0);
@@ -94,6 +123,39 @@ public class PuzzleMaster : MonoBehaviour {
     {
         sandBagHold.isHeld = true;
         sandPlate.onPlate = false;
+    }
+    #endregion
+
+    #region Color Puzzle Methods
+    // Receives input from a color button
+    public void InputColor(List<List<Color>> colors)
+    {
+        Debug.Log(colors[position]);
+        Debug.Log(colorCodes[codePosition][position]);
+        if (colors[codePosition][position] == colorCodes[codePosition][position]) position++;
+        else
+        {
+            isWrong = true;
+            position = 0;
+        }
+
+        // Check if code is completed
+        if (position == colors.Count)
+        {
+            exit.SendMessage("Open");
+            isCompleted = true;
+        }
+    }
+
+    // Resets the puzzle to the start of the code
+    public void ResetColorPuzzle()
+    {
+        isWrong = false;
+        if (!isCompleted)
+        {
+            position = 0;
+            codePosition = Random.Range(0, colorCodes.Count);
+        }
     }
     #endregion
 }

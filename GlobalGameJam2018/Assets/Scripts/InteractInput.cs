@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class MenuManager : MonoBehaviour {
+/*
+ * David Liu
+ * Interact Input
+ * Player interaction input with objects.
+ */
+public class InteractInput : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

@@ -34,8 +34,6 @@ sysinfo.txt
 *.unitypackage
 GlobalGameJam2018/Temp/
 GlobalGameJam2018/Library/metadata/
-*.bin
-
 *.lock
 
 GlobalGameJam2018/.vs/GlobalGameJam2018/v15/Server/

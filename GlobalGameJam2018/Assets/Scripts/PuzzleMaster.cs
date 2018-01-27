@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PuzzleMaster : MonoBehaviour {
 
-    private int[] plateCombo = new int[6] { 3, 4, 4, 1, 5, 4 };
+    private int[] plateCombo = new int[6] { 2, 3, 3, 0, 4, 3 };
     private int lockState = 0;
 
     public GameObject exit;
@@ -14,7 +14,7 @@ public class PuzzleMaster : MonoBehaviour {
 
         if (plateCode == plateCombo[lockState])
             lockState++;
-        if (lockState == plateCombo.Length - 1)
+        if (lockState == plateCombo.Length)
             exit.SendMessage("Open");
             
     }

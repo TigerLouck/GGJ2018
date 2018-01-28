@@ -131,12 +131,14 @@ public class PuzzleMaster : MonoBehaviour {
             if (sandWeight == sandAnswer) exit.SendMessage("Open");
             sandBagHold.isHeld = false;
             sandPlate.onPlate = true;
-            sandBagObject.transform.position = sandPlate.transform.position + new Vector3(0, sandBagObject.GetComponent<SpriteRenderer>().bounds.extents.y, 0);
+            sandBagObject.transform.position = sandPlate.transform.position;
+            sandPlate.GetComponent<Animator>().SetBool("PlateDown", true);
         }
         else if(sandPlate.onPlate)
         {
             sandBagHold.isHeld = true;
             sandPlate.onPlate = false;
+            sandPlate.GetComponent<Animator>().SetBool("PlateDown", false);
         }
     }
 

@@ -27,9 +27,9 @@ public class PuzzleMaster : MonoBehaviour {
 
     #region Color Puzzle Variables
     public int patternLength;
-    public List<Color> allColors = new List<Color>();
-    public Color[] allColorPaths;
-    public List<List<Color>> colorCodes = new List<List<Color>>();
+    public List<Sprite> allColors = new List<Sprite>();
+    public Sprite[] allColorPaths;
+    public List<List<Sprite>> colorCodes = new List<List<Sprite>>();
     public int codePosition = 0;
     public int position = 0;
     public bool isWrong = false;
@@ -41,25 +41,20 @@ public class PuzzleMaster : MonoBehaviour {
     public void Start()
     {
         int result = 1;
-        result = (int)((3 * Mathf.Pow((patternLength - 1), 2)) * patternLength);
+        result = (int)(Mathf.Pow(3, patternLength - 1) * patternLength);
 
-        allColorPaths = new Color[result];
+        allColorPaths = new Sprite[result];
         for(int j = 0; j < allColors.Count; j++)
-        {
-            RecurseColors(result, 0, 0, -1, 0);
-        }
+            RecurseColors(result, 0, 0, -1, 0, true);
 
-        int counter = 0;
-        while (allColors.Count != 0)
+        for (int i = 0; i < allColorPaths.Length; i++)
         {
-            List<Color> colorList = new List<Color>();
+            List<Sprite> colorList = new List<Sprite>();
             colorCodes.Add(colorList);
-            counter = 0;
-            while (counter != patternLength || allColors.Count != 0)
+            for (int j = 0; j < patternLength; j++)
             {
-                counter++;
-                colorList.Add(allColors[0]);
-                allColors.RemoveAt(0);
+                colorList.Add(allColorPaths[i]);
+                i++;
             }
         }
 
@@ -138,10 +133,8 @@ public class PuzzleMaster : MonoBehaviour {
 
     #region Color Puzzle Methods
     // Receives input from a color button
-    public void InputColor(List<List<Color>> colors)
+    public void InputColor(List<List<Sprite>> colors)
     {
-        Debug.Log(colors[position]);
-        Debug.Log(colorCodes[codePosition][position]);
         if (colors[codePosition][position] == colorCodes[codePosition][position]) position++;
         else
         {
@@ -167,42 +160,46 @@ public class PuzzleMaster : MonoBehaviour {
             codePosition = Random.Range(0, colorCodes.Count);
         }
     }
-    #endregion
 
-    public void RecurseColors(int count, int path, int counter, int index, int prevStart)
+    // Don't ask me how this works
+    public void RecurseColors(int count, int path, int counter, int index, int prevStart, bool firstRecursion)
     {
+        if (!firstRecursion) count = count / 3;
         if (count == 1) return;
-        count--;
-        count = count / 3;
-        switch (path)
+        else
         {
-            case 0:
-                index++;
-                break;
-            case 1:
-                index += 2;
-                break;
-            case 2:
-                index += 3;
-                break;
-        }
+            switch (path)
+            {
+                case 0:
+                    index++;
+                    break;
+                case 1:
+                    index += 2;
+                    break;
+                case 2:
+                    index += 3;
+                    break;
+            }
 
-        int start = prevStart + (count * path) + (counter + path);
-        Debug.Log(allColors.Count);
-        Debug.Log(start);
-        Debug.Log(count);
-        float length = (allColors.Count - ((2f * ((count - 1) / 3f)) + 1)) + start;
-        Debug.Log("Start: " + start);
-        Debug.Log("Length: " + length);
-        for (int i = start; i <= length; i += patternLength)
-        {
-            allColorPaths[i] = allColors[index];
-        }
-        counter++;
-        prevStart = start;
+            int start = prevStart + (count * path) + counter;
+            float length = 0;
+            if (firstRecursion) length = count;
+            else length = count + start;
+            int trueIndex = index;
+            if (path != 0) trueIndex = index + (path * 3);
+            else trueIndex = index;
+            for (int i = start; i < length; i += patternLength)
+            {
+                allColorPaths[i] = allColors[trueIndex];
+            }
+            if (!firstRecursion) prevStart = start - counter;
+            counter++;
+            firstRecursion = false;
 
-        RecurseColors(count, 0, counter, index, prevStart);
-        RecurseColors(count, 1, counter, index, prevStart);
-        RecurseColors(count, 2, counter, index, prevStart);
+            RecurseColors(count, 0, counter, index, prevStart, firstRecursion);
+            RecurseColors(count, 1, counter, index, prevStart, firstRecursion);
+            RecurseColors(count, 2, counter, index, prevStart, firstRecursion);
+        }
     }
+    #endregion
 }

@@ -11,7 +11,7 @@ public class PuzzleMaster : MonoBehaviour {
     private int lockState = 0;
 
     #region Sand Puzzle Variables
-    private int sandWeight = 0;
+    private int sandWeight = 10;
     private int sandCap = 20;
     private int sandAnswer = 17;
 
@@ -22,6 +22,7 @@ public class PuzzleMaster : MonoBehaviour {
     public SandBag sandBag;
     public SandPlate sandPlate;
     public SandBagHold sandBagHold;
+    public GameObject ScaleArm;
     public float heightChange = 0.005f;
     #endregion
 
@@ -81,9 +82,10 @@ public class PuzzleMaster : MonoBehaviour {
         if (sandWeight != sandCap && !sandBagHold.isHeld && !sandPlate.onPlate)
         {
             sandWeight++;
-            sandBag.gameObject.transform.position -= new Vector3(0, heightChange, 0);
-            sandBagObject.transform.position -= new Vector3(0, heightChange, 0);
-            rockScaleObject.transform.position += new Vector3(0, heightChange, 0);
+            ScaleArm.transform.rotation *= Quaternion.Euler(0, 0, 1);
+            rockScaleObject.transform.rotation = Quaternion.Euler(0,0,-1);
+            sandBag.transform.rotation = Quaternion.Euler(0, 0, -1);
+            sandBagObject.transform.rotation = Quaternion.Euler(0, 0, -1);
         }
     }
 
@@ -93,9 +95,10 @@ public class PuzzleMaster : MonoBehaviour {
         if (sandWeight != 0 && !sandBagHold.isHeld && !sandPlate.onPlate)
         {
             sandWeight--;
-            sandBag.gameObject.transform.position += new Vector3(0, heightChange, 0);
-            sandBagObject.transform.position += new Vector3(0, heightChange, 0);
-            rockScaleObject.transform.position -= new Vector3(0, heightChange, 0);
+            ScaleArm.transform.rotation *= Quaternion.Euler(0, 0, -1);
+            rockScaleObject.transform.rotation = Quaternion.Euler(0, 0, 1);
+            sandBag.transform.rotation = Quaternion.Euler(0, 0, 1);
+            sandBagObject.transform.rotation = Quaternion.Euler(0, 0, 1);
         }
     }
 

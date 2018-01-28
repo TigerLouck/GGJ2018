@@ -28,6 +28,7 @@ public class PuzzleMaster : MonoBehaviour {
     public GameObject ScaleArm;
     public float heightChange = 0.005f;
     public AudioSource sandBagDropSound;
+    public GameObject SandTossPrefab;
     #endregion
 
     #region Color Puzzle Variables
@@ -119,6 +120,7 @@ public class PuzzleMaster : MonoBehaviour {
             rockScaleObject.transform.rotation = Quaternion.Euler(0, 0, 1);
             sandBag.transform.rotation = Quaternion.Euler(0, 0, 1);
             sandBagObject.transform.rotation = Quaternion.Euler(0, 0, 1);
+            GameObject.Destroy( Instantiate<GameObject>(SandTossPrefab,sandBag.sandBag.transform, true), 1);
         }
     }
 
@@ -146,7 +148,7 @@ public class PuzzleMaster : MonoBehaviour {
     public void PlaceBagScale()
     {
         sandBagHold.isHeld = false;
-        sandBagObject.transform.position = sandBag.transform.position;
+        sandBagObject.transform.position = sandBag.transform.position + Vector3.up * -.067f;
     }
 
     // Makes the player hold the sand bag

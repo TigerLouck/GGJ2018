@@ -71,7 +71,7 @@ public class PuzzleMaster : MonoBehaviour {
         #endregion
 
         #region Plate Puzzle
-        startPitch = crateSound.pitch;
+        if(crateSound != null) startPitch = crateSound.pitch;
         #endregion
     }
 

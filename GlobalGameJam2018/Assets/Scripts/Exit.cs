@@ -14,10 +14,4 @@ public class Exit : MonoBehaviour {
         isDone = true;
         animator.SetTrigger("OpenDoor");
     }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(isDone) SceneManager.LoadScene(SceneToLoad);
-    }
-
 }

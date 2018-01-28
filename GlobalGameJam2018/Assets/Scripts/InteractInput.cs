@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 /*
  * David Liu
  * Interact Input
@@ -8,11 +9,12 @@ using UnityEngine;
  */
 public class InteractInput : MonoBehaviour {
     // Variables
-    List<GameObject> interactables = new List<GameObject>();
+    private List<GameObject> interactables = new List<GameObject>();
+    public Exit exit;
 
 	// Use this for initialization
 	void Start () {
-
+        if (exit == null) Debug.LogError("Exit script is not defined in Interact Input script!");
 	}
 	
 	// Update is called once per frame
@@ -30,6 +32,8 @@ public class InteractInput : MonoBehaviour {
         if (collision.tag == "Interactable")
             if (!interactables.Contains(collision.gameObject))
                 interactables.Add(collision.gameObject);
+
+        if(exit.isDone && collision.tag == "Exit") SceneManager.LoadScene(exit.SceneToLoad);
     }
 
     // Exits trigger collider

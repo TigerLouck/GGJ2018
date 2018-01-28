@@ -12,11 +12,12 @@ public class ColorButton : MonoBehaviour {
 
     // Variables
     public GameObject puzzleMaster;
-    public Sprite currentColor;
-    public Sprite wrongColor;
-    public Sprite correctColor;
+    public Sprite currentSprite;
+    public Color currentColor;
+    public Color wrongColor;
+    public Color correctColor;
     public int patternLength;
-    public List<Sprite> allColors = new List<Sprite>();
+    //public List<Sprite> allColors = new List<Sprite>();
     public Sprite[] allColorPaths;
 
     private PuzzleMaster script;
@@ -32,14 +33,15 @@ public class ColorButton : MonoBehaviour {
         script = puzzleMaster.GetComponent<PuzzleMaster>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
-        int result = 1;
+        // Failed Recursion Algorithm for expandable tree
+        /*int result = 1;
         result = (int)(Mathf.Pow(3, patternLength - 1) * patternLength);
 
         allColorPaths = new Sprite[result];
         for (int j = 0; j < allColors.Count; j++)
-            RecurseColors(result, 0, 0, -1, 0, true);
+            RecurseColors(result, 0, 0, -1, 0, true);*/
 
-        for (int i = 0; i < allColorPaths.Length; i++)
+        for (int i = 0; i < allColorPaths.Length;)
         {
             List<Sprite> colorList = new List<Sprite>();
             colors.Add(colorList);
@@ -60,11 +62,13 @@ public class ColorButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // Set object to tinted color
-        if (script.position != script.colorCodes[script.codePosition].Count) currentColor = colors[script.codePosition][script.position];
+        if (script.position != script.colorCodes[script.codePosition].Count) currentSprite = colors[script.codePosition][script.position];
 
         if (script.isWrong) currentColor = wrongColor;
-        if (script.isCompleted) currentColor = correctColor;
-        spriteRenderer.sprite = currentColor;
+        else if (script.isCompleted) currentColor = correctColor;
+        else currentColor = Color.white;
+        spriteRenderer.color = currentColor;
+        spriteRenderer.sprite = currentSprite;
 	}
 
     public void Interact()

@@ -121,10 +121,11 @@ GameObject:
   m_Component:
   - component: {fileID: 142069699}
   - component: {fileID: 142069698}
+  - component: {fileID: 142069700}
   - component: {fileID: 142069697}
   m_Layer: 0
   m_Name: Reset Button
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,6 +199,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &142069700
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 142069696}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.16}
+  m_EdgeRadius: 0
 --- !u!1 &279081344
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,10 +233,11 @@ GameObject:
   m_Component:
   - component: {fileID: 279081347}
   - component: {fileID: 279081346}
+  - component: {fileID: 279081348}
   - component: {fileID: 279081345}
   m_Layer: 0
   m_Name: Button (3)
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,11 +254,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleMaster: {fileID: 493025469}
-  currentColor: {fileID: 0}
-  wrongColor: {fileID: 0}
-  correctColor: {fileID: 0}
+  currentSprite: {fileID: 0}
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
   patternLength: 4
-  allColors: []
+  allColors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 21300000, guid: e18c6a4acef3804469117a49f0221b10, type: 3}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 21300000, guid: 72bf8463dbd804c4a8e57a93233b2f56, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   allColorPaths: []
 --- !u!212 &279081346
 SpriteRenderer:
@@ -290,6 +358,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &279081348
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 279081344}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!1 &325206328
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,10 +392,11 @@ GameObject:
   m_Component:
   - component: {fileID: 325206331}
   - component: {fileID: 325206330}
+  - component: {fileID: 325206332}
   - component: {fileID: 325206329}
   m_Layer: 0
   m_Name: Button (2)
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,11 +413,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleMaster: {fileID: 493025469}
-  currentColor: {fileID: 0}
-  wrongColor: {fileID: 0}
-  correctColor: {fileID: 0}
+  currentSprite: {fileID: 0}
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
   patternLength: 4
-  allColors: []
+  allColors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 72bf8463dbd804c4a8e57a93233b2f56, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 1bb80d89634b5d3469223eda2cbf395a, type: 3}
+  - {fileID: 21300000, guid: 1bb80d89634b5d3469223eda2cbf395a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 72bf8463dbd804c4a8e57a93233b2f56, type: 3}
   allColorPaths: []
 --- !u!212 &325206330
 SpriteRenderer:
@@ -382,6 +517,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &325206332
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325206328}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!1 &356562169
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +654,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1976130568212202, guid: a8eef02e551d60d498c5d5b1a3498203, type: 2}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8eef02e551d60d498c5d5b1a3498203, type: 2}
   m_IsPrefabParent: 0
@@ -534,46 +698,46 @@ MonoBehaviour:
   heightChange: 0.05
   patternLength: 4
   allColors:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: e18c6a4acef3804469117a49f0221b10, type: 3}
+  - {fileID: 21300000, guid: e18c6a4acef3804469117a49f0221b10, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 21300000, guid: e18c6a4acef3804469117a49f0221b10, type: 3}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
+  - {fileID: 21300000, guid: 72bf8463dbd804c4a8e57a93233b2f56, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
+  - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: 1bb80d89634b5d3469223eda2cbf395a, type: 3}
+  - {fileID: 21300000, guid: 72bf8463dbd804c4a8e57a93233b2f56, type: 3}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 21300000, guid: e18c6a4acef3804469117a49f0221b10, type: 3}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 21300000, guid: 72bf8463dbd804c4a8e57a93233b2f56, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
+  - {fileID: 21300000, guid: 1bb80d89634b5d3469223eda2cbf395a, type: 3}
+  - {fileID: 21300000, guid: 1bb80d89634b5d3469223eda2cbf395a, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 21300000, guid: 1bb80d89634b5d3469223eda2cbf395a, type: 3}
+  - {fileID: 21300000, guid: 72bf8463dbd804c4a8e57a93233b2f56, type: 3}
   allColorPaths: []
   codePosition: 0
   position: 0
@@ -763,6 +927,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1079991255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1079991257}
+  - component: {fileID: 1079991256}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1079991256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1079991255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb86b6ae05bc7947a3e476538d571c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patternLength: 4
+  allColors: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f0000002000000021000000220000002300000024000000250000002600000027000000
+  allColorPaths: 
+--- !u!4 &1079991257
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1079991255}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.29150906, y: 0.011932812, z: 0.04736328}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473301519
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,10 +979,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1473301522}
   - component: {fileID: 1473301521}
+  - component: {fileID: 1473301523}
   - component: {fileID: 1473301520}
   m_Layer: 0
   m_Name: Button (1)
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -792,11 +1000,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleMaster: {fileID: 493025469}
-  currentColor: {fileID: 0}
-  wrongColor: {fileID: 0}
-  correctColor: {fileID: 0}
+  currentSprite: {fileID: 0}
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
   patternLength: 4
-  allColors: []
+  allColors:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: e18c6a4acef3804469117a49f0221b10, type: 3}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 72bf8463dbd804c4a8e57a93233b2f56, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 1bb80d89634b5d3469223eda2cbf395a, type: 3}
+  - {fileID: 0}
   allColorPaths: []
 --- !u!212 &1473301521
 SpriteRenderer:
@@ -855,6 +1104,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1473301523
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1473301519}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!1 &1643057402
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,10 +1138,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1643057405}
   - component: {fileID: 1643057404}
+  - component: {fileID: 1643057406}
   - component: {fileID: 1643057403}
   m_Layer: 0
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -884,11 +1159,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleMaster: {fileID: 493025469}
-  currentColor: {fileID: 0}
-  wrongColor: {fileID: 0}
-  correctColor: {fileID: 0}
+  currentSprite: {fileID: 0}
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+  wrongColor: {r: 1, g: 0, b: 0, a: 1}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
   patternLength: 4
   allColors:
+  - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: e18c6a4acef3804469117a49f0221b10, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 1bb80d89634b5d3469223eda2cbf395a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -897,29 +1190,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 21300000, guid: c8aa33faeb4a92a49ba5588122b87a2c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 21300000, guid: a652b4fdb28b6bd4fb08e2ec1abb8841, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: fc1fde1a6d9c2e04dbce8885cff6542d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -987,6 +1263,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1643057406
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643057402}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!1 &1656902454 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1976130568212202, guid: a8eef02e551d60d498c5d5b1a3498203,

@@ -27,7 +27,7 @@ public class PuzzleMaster : MonoBehaviour {
 
     #region Color Puzzle Variables
     public int patternLength;
-    public List<Sprite> allColors = new List<Sprite>();
+    //public List<Sprite> allColors = new List<Sprite>();
     public Sprite[] allColorPaths;
     public List<List<Sprite>> colorCodes = new List<List<Sprite>>();
     public int codePosition = 0;
@@ -40,22 +40,25 @@ public class PuzzleMaster : MonoBehaviour {
 
     public void Start()
     {
-        int result = 1;
+        // Failed Recursion Algorithm for expandable tree
+        /*(int result = 1;
         result = (int)(Mathf.Pow(3, patternLength - 1) * patternLength);
 
         allColorPaths = new Sprite[result];
         for(int j = 0; j < allColors.Count; j++)
-            RecurseColors(result, 0, 0, -1, 0, true);
+            RecurseColors(result, 0, 0, -1, 0, true);*/
 
-        for (int i = 0; i < allColorPaths.Length; i++)
+        for (int i = 0; i < allColorPaths.Length;)
         {
             List<Sprite> colorList = new List<Sprite>();
             colorCodes.Add(colorList);
             for (int j = 0; j < patternLength; j++)
             {
+                Debug.Log(allColorPaths[i]);
                 colorList.Add(allColorPaths[i]);
                 i++;
             }
+            Debug.Log("NEW CODE");
         }
 
         codePosition = Random.Range(0, colorCodes.Count);
@@ -135,15 +138,12 @@ public class PuzzleMaster : MonoBehaviour {
     // Receives input from a color button
     public void InputColor(List<List<Sprite>> colors)
     {
+        Debug.Log(position);
         if (colors[codePosition][position] == colorCodes[codePosition][position]) position++;
-        else
-        {
-            isWrong = true;
-            position = 0;
-        }
+        else isWrong = true;
 
         // Check if code is completed
-        if (position == colors.Count)
+        if (position >= colors[codePosition].Count)
         {
             exit.SendMessage("Open");
             isCompleted = true;

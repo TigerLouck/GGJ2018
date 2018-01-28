@@ -11,6 +11,7 @@ public class PuzzleMaster : MonoBehaviour {
     private int lockState = 0;
     public AudioSource crateSound;
     public AudioSource plateSound;
+    public AudioSource doorSound;
     public float soundVariationRange;
     private float startPitch;
 
@@ -18,6 +19,8 @@ public class PuzzleMaster : MonoBehaviour {
     private int sandWeight = 10;
     private int sandCap = 20;
     private int sandAnswer = 17;
+
+    public AudioSource sandSound;
 
     // Reference each object and script
     public GameObject sandBagObject;
@@ -33,6 +36,9 @@ public class PuzzleMaster : MonoBehaviour {
     #endregion
 
     #region Color Puzzle Variables
+    public AudioSource buttonSound;
+    public float soundVariationRange2;
+    private float startPitch2;
     public int patternLength;
     //public List<Sprite> allColors = new List<Sprite>();
     public Sprite[] allColorPaths;
@@ -70,10 +76,12 @@ public class PuzzleMaster : MonoBehaviour {
         }
 
         codePosition = Random.Range(0, colorCodes.Count);
+
+        if (buttonSound != null) startPitch2 = buttonSound.pitch;
         #endregion
 
         #region Plate Puzzle
-        if(crateSound != null) startPitch = crateSound.pitch;
+        if (crateSound != null) startPitch = crateSound.pitch;
         #endregion
     }
 
@@ -84,16 +92,8 @@ public class PuzzleMaster : MonoBehaviour {
         // Add variation in pitch to the sound effect
         float num = Random.Range(0, soundVariationRange);
         int num2 = Random.Range(0, 2);
-        if (num2 == 0)
-        {
-            crateSound.pitch = startPitch - num;
-            //plateSound.pitch = startPitch - num;
-        }
-        else
-        {
-            crateSound.pitch = startPitch + num;
-            //plateSound.pitch = startPitch + num;
-        }
+        if (num2 == 0) crateSound.pitch = startPitch - num;
+        else crateSound.pitch = startPitch + num;
         crateSound.Play();
         plateSound.Play();
 
@@ -102,7 +102,10 @@ public class PuzzleMaster : MonoBehaviour {
         else lockState = 0;
 
         if (lockState == plateCombo.Length)
+        {
             exit.SendMessage("Open");
+            doorSound.Play();
+        }
             
     }
 
@@ -112,6 +115,13 @@ public class PuzzleMaster : MonoBehaviour {
     {
         if (sandWeight != sandCap && !sandBagHold.isHeld && !sandPlate.onPlate)
         {
+            // Add variation in pitch to the sound effect
+            float num = Random.Range(0, soundVariationRange2);
+            int num2 = Random.Range(0, 2);
+            if (num2 == 0) buttonSound.pitch = startPitch2 - num;
+            else buttonSound.pitch = startPitch2 + num;
+            buttonSound.Play();
+
             sandWeight++;
             ScaleArm.transform.rotation *= Quaternion.Euler(0, 0, 1);
             rockScaleObject.transform.rotation = Quaternion.Euler(0,0,-1);
@@ -125,6 +135,7 @@ public class PuzzleMaster : MonoBehaviour {
     {
         if (sandWeight != 0 && !sandBagHold.isHeld && !sandPlate.onPlate)
         {
+            sandSound.Play();
             sandWeight--;
             ScaleArm.transform.rotation *= Quaternion.Euler(0, 0, -1);
             rockScaleObject.transform.rotation = Quaternion.Euler(0, 0, 1);
@@ -141,7 +152,11 @@ public class PuzzleMaster : MonoBehaviour {
         {
             sandBagDropSound.Play();
             plateSound.Play();
-            if (sandWeight == sandAnswer) exit.SendMessage("Open");
+            if (sandWeight == sandAnswer)
+            {
+                exit.SendMessage("Open");
+                doorSound.Play();
+            }
             sandBagHold.isHeld = false;
             sandPlate.onPlate = true;
             sandBagObject.transform.position = sandPlate.transform.position;
@@ -174,7 +189,13 @@ public class PuzzleMaster : MonoBehaviour {
     // Receives input from a color button
     public void InputColor(List<List<Sprite>> colors)
     {
-        Debug.Log(position);
+        // Add variation in pitch to the sound effect
+        float num = Random.Range(0, soundVariationRange2);
+        int num2 = Random.Range(0, 2);
+        if (num2 == 0) buttonSound.pitch = startPitch2 - num;
+        else buttonSound.pitch = startPitch2 + num;
+        buttonSound.Play();
+
         if (colors[codePosition][position] == colorCodes[codePosition][position]) position++;
         else isWrong = true;
 
@@ -182,6 +203,7 @@ public class PuzzleMaster : MonoBehaviour {
         if (position >= colors[codePosition].Count)
         {
             exit.SendMessage("Open");
+            doorSound.Play();
             isCompleted = true;
         }
     }
@@ -189,6 +211,13 @@ public class PuzzleMaster : MonoBehaviour {
     // Resets the puzzle to the start of the code
     public void ResetColorPuzzle()
     {
+        // Add variation in pitch to the sound effect
+        float num = Random.Range(0, soundVariationRange2);
+        int num2 = Random.Range(0, 2);
+        if (num2 == 0) buttonSound.pitch = startPitch2 - num;
+        else buttonSound.pitch = startPitch2 + num;
+        buttonSound.Play();
+
         isWrong = false;
         if (!isCompleted)
         {

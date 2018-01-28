@@ -9,6 +9,9 @@ public class PuzzleMaster : MonoBehaviour {
 
     private int[] plateCombo = new int[6] { 2, 3, 3, 0, 4, 3 };
     private int lockState = 0;
+    public AudioSource crateSound;
+    public float soundVariationRange;
+    private float startPitch;
 
     #region Sand Puzzle Variables
     private int sandWeight = 10;
@@ -24,6 +27,7 @@ public class PuzzleMaster : MonoBehaviour {
     public SandBagHold sandBagHold;
     public GameObject ScaleArm;
     public float heightChange = 0.005f;
+    public AudioSource sandBagDropSound;
     #endregion
 
     #region Color Puzzle Variables
@@ -41,6 +45,7 @@ public class PuzzleMaster : MonoBehaviour {
 
     public void Start()
     {
+        #region Color Puzzle
         // Failed Recursion Algorithm for expandable tree
         /*(int result = 1;
         result = (int)(Mathf.Pow(3, patternLength - 1) * patternLength);
@@ -63,11 +68,23 @@ public class PuzzleMaster : MonoBehaviour {
         }
 
         codePosition = Random.Range(0, colorCodes.Count);
+        #endregion
+
+        #region Plate Puzzle
+        startPitch = crateSound.pitch;
+        #endregion
     }
 
     public void HitPlate(int plateCode)
     {
         Debug.Log(plateCode);
+
+        // Add variation in pitch to the sound effect
+        float num = Random.Range(0, soundVariationRange);
+        int num2 = Random.Range(0, 2);
+        if (num2 == 0) crateSound.pitch = startPitch - num;
+        else crateSound.pitch = startPitch + num;
+        crateSound.Play();
 
         if (plateCode == plateCombo[lockState])
             lockState++;
@@ -110,6 +127,7 @@ public class PuzzleMaster : MonoBehaviour {
     {
         if (sandBagHold.isHeld)
         {
+            sandBagDropSound.Play();
             if (sandWeight == sandAnswer) exit.SendMessage("Open");
             sandBagHold.isHeld = false;
             sandPlate.onPlate = true;

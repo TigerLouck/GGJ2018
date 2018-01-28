@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ColorPuzzle.unity
+- path: Assets/Scenes/SandPuzzle.unity
   isLoaded: 1
   isActive: 1

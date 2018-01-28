@@ -1065,6 +1065,7 @@ MonoBehaviour:
   ScaleArm: {fileID: 0}
   heightChange: 0.05
   sandBagDropSound: {fileID: 0}
+  SandTossPrefab: {fileID: 0}
   patternLength: 4
   allColorPaths:
   - {fileID: 21300000, guid: 6c8f38b322b4980408022cf5eb64ea52, type: 3}
@@ -1649,7 +1650,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407967280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.029, y: -0.212, z: 0}
+  m_LocalPosition: {x: 0.029, y: -0.212, z: -1}
   m_LocalScale: {x: 48.725006, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2129,7 +2130,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.32, y: 0.4}
-    newSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.32, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

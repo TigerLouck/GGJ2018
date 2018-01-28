@@ -12,8 +12,9 @@ public class Crate : MonoBehaviour {
 
     private bool justdropped = false;
     private float droppedX;
-	// Update is called once per frame
-	void Update () {
+    private GameObject closest = null;
+    // Update is called once per frame
+    void Update () {
        if (isHeld)
         {
             transform.position = player.transform.position + Vector3.up * playerHoldHeight;
@@ -23,7 +24,7 @@ public class Crate : MonoBehaviour {
         else
         {
             float dist = 100; //must be larger than player level bounds;
-            GameObject closest = null;
+            
             foreach (Transform button in buttons)
             {
                 if (Mathf.Abs(droppedX - button.position.x) < dist)
@@ -37,6 +38,7 @@ public class Crate : MonoBehaviour {
             if (justdropped)
             {
                 closest.SendMessage("Depress");
+                closest.GetComponent<Animator>().SetBool("PlateDown", true);
                 justdropped = false;
             }
         }
@@ -47,5 +49,7 @@ public class Crate : MonoBehaviour {
         isHeld = !isHeld;
         if (isHeld == false)
             justdropped = true;
+        else
+            closest.GetComponent<Animator>().SetBool("PlateDown", false);
     }
 }

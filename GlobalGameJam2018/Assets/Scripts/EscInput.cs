@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class EscInput : MonoBehaviour {
 
     public GameObject player;
-    public Text text;
+    public Image image;
     public bool isEscape = false;
 
     private PlayerMovement script;
@@ -35,7 +35,7 @@ public class EscInput : MonoBehaviour {
                 script.currentImage = null;
             }
 
-        if (isEscape) text.enabled = true;
-        else text.enabled = false;
+        if (isEscape) image.enabled = true;
+        else image.enabled = false;
 	}
 }

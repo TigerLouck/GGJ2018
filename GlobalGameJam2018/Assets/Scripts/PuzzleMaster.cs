@@ -10,6 +10,7 @@ public class PuzzleMaster : MonoBehaviour {
     private int[] plateCombo = new int[6] { 2, 3, 3, 0, 4, 3 };
     private int lockState = 0;
     public AudioSource crateSound;
+    public AudioSource plateSound;
     public float soundVariationRange;
     private float startPitch;
 
@@ -83,9 +84,18 @@ public class PuzzleMaster : MonoBehaviour {
         // Add variation in pitch to the sound effect
         float num = Random.Range(0, soundVariationRange);
         int num2 = Random.Range(0, 2);
-        if (num2 == 0) crateSound.pitch = startPitch - num;
-        else crateSound.pitch = startPitch + num;
+        if (num2 == 0)
+        {
+            crateSound.pitch = startPitch - num;
+            //plateSound.pitch = startPitch - num;
+        }
+        else
+        {
+            crateSound.pitch = startPitch + num;
+            //plateSound.pitch = startPitch + num;
+        }
         crateSound.Play();
+        plateSound.Play();
 
         if (plateCode == plateCombo[lockState])
             lockState++;
@@ -130,6 +140,7 @@ public class PuzzleMaster : MonoBehaviour {
         if (sandBagHold.isHeld)
         {
             sandBagDropSound.Play();
+            plateSound.Play();
             if (sandWeight == sandAnswer) exit.SendMessage("Open");
             sandBagHold.isHeld = false;
             sandPlate.onPlate = true;

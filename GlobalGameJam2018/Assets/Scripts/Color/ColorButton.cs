@@ -77,7 +77,7 @@ public class ColorButton : MonoBehaviour {
     }
 
     // Don't ask me how this works
-    public void RecurseColors(int count, int path, int counter, int index, int prevStart, bool firstRecursion)
+    /*public void RecurseColors(int count, int path, int counter, int index, int prevStart, bool firstRecursion)
     {
         if (!firstRecursion) count = count / 3;
         if (count == 1) return;
@@ -115,5 +115,5 @@ public class ColorButton : MonoBehaviour {
             RecurseColors(count, 1, counter, index, prevStart, firstRecursion);
             RecurseColors(count, 2, counter, index, prevStart, firstRecursion);
         }
-    }
+    }*/
 }

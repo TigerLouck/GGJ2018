@@ -14,4 +14,6 @@ public class Exit : MonoBehaviour {
         isDone = true;
         animator.SetTrigger("OpenDoor");
     }
+
+    
 }

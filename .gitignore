@@ -38,3 +38,6 @@ GlobalGameJam2018/Library/
 GlobalGameJam2018/Library/CurrentLayout.dwlt
 *.dwlt
 *.meta
+*.ide-shm
+*.ide
+*.ide-wal

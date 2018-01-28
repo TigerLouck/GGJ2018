@@ -22,7 +22,7 @@ public class PuzzleMaster : MonoBehaviour {
     public SandBag sandBag;
     public SandPlate sandPlate;
     public SandBagHold sandBagHold;
-    public float heightChange = 0.05f;
+    public float heightChange = 0.005f;
     #endregion
 
     #region Color Puzzle Variables
@@ -114,7 +114,7 @@ public class PuzzleMaster : MonoBehaviour {
             sandPlate.onPlate = true;
             sandBagObject.transform.position = sandPlate.transform.position + new Vector3(0, sandBagObject.GetComponent<SpriteRenderer>().bounds.extents.y, 0);
         }
-        else
+        else if(sandPlate.onPlate)
         {
             sandBagHold.isHeld = true;
             sandPlate.onPlate = false;

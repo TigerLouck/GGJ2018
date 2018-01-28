@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour {
 
     public void Researcher()
     {
-        SceneManager.LoadScene("Researcher");
+        SceneManager.LoadScene("ResearcherScene");
     }
 
     public void Exit ()

@@ -88,7 +88,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 0.25, y: 0.4}
   m_EdgeRadius: 0
 --- !u!95 &95214513472703760
 Animator:
@@ -131,12 +131,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: 0
   velocity: 0
-  acceleration: 0.005
-  maxVelocity: 0.1
+  acceleration: 0.003
+  maxVelocity: 0.02
   playerSprite: {fileID: 212379314414045148}
   leftBound: -10
   rightBound: 10
   isLeft: 0
+  anim: {fileID: 95214513472703760}
 --- !u!212 &212379314414045148
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -12,15 +12,16 @@ public class ColorButton : MonoBehaviour {
 
     // Variables
     public GameObject puzzleMaster;
-    public Color currentColor;
-    public Color wrongColor;
-    public Color correctColor;
+    public Sprite currentColor;
+    public Sprite wrongColor;
+    public Sprite correctColor;
     public int patternLength;
-    public List<Color> allColors = new List<Color>();
+    public List<Sprite> allColors = new List<Sprite>();
+    public Sprite[] allColorPaths;
 
     private PuzzleMaster script;
     private SpriteRenderer spriteRenderer;
-    private List<List<Color>> colors = new List<List<Color>>();
+    private List<List<Sprite>> colors = new List<List<Sprite>>();
 
     // Use this for initialization
     void Start () {
@@ -31,17 +32,21 @@ public class ColorButton : MonoBehaviour {
         script = puzzleMaster.GetComponent<PuzzleMaster>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
-        int counter = 0;
-        while(allColors.Count != 0)
+        int result = 1;
+        result = (int)(Mathf.Pow(3, patternLength - 1) * patternLength);
+
+        allColorPaths = new Sprite[result];
+        for (int j = 0; j < allColors.Count; j++)
+            RecurseColors(result, 0, 0, -1, 0, true);
+
+        for (int i = 0; i < allColorPaths.Length; i++)
         {
-            List<Color> colorList = new List<Color>();
+            List<Sprite> colorList = new List<Sprite>();
             colors.Add(colorList);
-            counter = 0;
-            while (counter != patternLength || allColors.Count != 0)
+            for (int j = 0; j < patternLength; j++)
             {
-                counter++;
-                colorList.Add(allColors[0]);
-                allColors.RemoveAt(0);
+                colorList.Add(allColorPaths[i]);
+                i++;
             }
         }
 
@@ -59,11 +64,52 @@ public class ColorButton : MonoBehaviour {
 
         if (script.isWrong) currentColor = wrongColor;
         if (script.isCompleted) currentColor = correctColor;
-        spriteRenderer.color = currentColor;
+        spriteRenderer.sprite = currentColor;
 	}
 
     public void Interact()
     {
         if(!script.isWrong && !script.isCompleted) puzzleMaster.SendMessage("InputColor", colors);
+    }
+
+    // Don't ask me how this works
+    public void RecurseColors(int count, int path, int counter, int index, int prevStart, bool firstRecursion)
+    {
+        if (!firstRecursion) count = count / 3;
+        if (count == 1) return;
+        else
+        {
+            switch (path)
+            {
+                case 0:
+                    index++;
+                    break;
+                case 1:
+                    index += 2;
+                    break;
+                case 2:
+                    index += 3;
+                    break;
+            }
+
+            int start = prevStart + (count * path) + counter;
+            float length = 0;
+            if (firstRecursion) length = count;
+            else length = count + start;
+            int trueIndex = index;
+            if (path != 0) trueIndex = index + (path * 3);
+            else trueIndex = index;
+            for (int i = start; i < length; i += patternLength)
+            {
+                allColorPaths[i] = allColors[trueIndex];
+            }
+            if (!firstRecursion) prevStart = start - counter;
+            counter++;
+            firstRecursion = false;
+
+            RecurseColors(count, 0, counter, index, prevStart, firstRecursion);
+            RecurseColors(count, 1, counter, index, prevStart, firstRecursion);
+            RecurseColors(count, 2, counter, index, prevStart, firstRecursion);
+        }
     }
 }

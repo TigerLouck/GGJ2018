@@ -5,7 +5,7 @@ using UnityEngine;
 public class TreeNode : MonoBehaviour {
 
     public Color color;
-    public TreeNode[] nodeList;
+    public TreeNode[] nodeList = new TreeNode[3];
 
     public TreeNode(Color c)
     {
